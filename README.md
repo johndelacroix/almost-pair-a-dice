@@ -1,2 +1,2 @@
-# rest-pun-taneous
-RESTful APIs and whatnots
+# Almost pair of dice
+A simulation of dice rolling using REST APIs
