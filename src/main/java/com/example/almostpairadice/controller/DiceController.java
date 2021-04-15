@@ -1,5 +1,6 @@
 package com.example.almostpairadice.controller;
 
+import com.example.almostpairadice.dto.DiceDistribution;
 import com.example.almostpairadice.dto.DiceRollResult;
 import com.example.almostpairadice.dto.ErrorMessage;
 import com.example.almostpairadice.models.DiceSimulation;
@@ -78,13 +79,40 @@ public class DiceController {
 
         for (DiceRollResult diceRollResult : diceRollResultList) {
             DiceSimulation diceSimulation = new DiceSimulation();
-            diceSimulation.setDiceCount(Integer.toString(diceCount));
-            diceSimulation.setDiceSide(Integer.toString(diceSides));
-            diceSimulation.setRollSum(Integer.toString(diceRollResult.getSum()));
-            diceSimulation.setFrequency(Integer.toString(diceRollResult.getFrequency()));
+            diceSimulation.setDiceCount(diceCount);
+            diceSimulation.setDiceSide(diceSides);
+            diceSimulation.setRollSum(diceRollResult.getSum());
+            diceSimulation.setFrequency(diceRollResult.getFrequency());
             diceSimulationRepository.save(diceSimulation);
         }
 
         return ResponseEntity.ok().body(diceRollResultList);
+    }
+
+
+    @GetMapping(value="/dicedistribution", produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<List<DiceDistribution>> getDiceDistribution(@RequestParam(value = "diceCount", defaultValue = "3") Integer diceCount,
+                                                                      @RequestParam(value = "diceSides", defaultValue = "6") Integer diceSides) {
+
+        List<DiceDistribution> diceDistributionList = new ArrayList<>();
+        List<DiceSimulation> diceSimulationList = new ArrayList<>();
+
+        diceSimulationList = diceSimulationRepository.findByDiceCountAndDiceSide(diceCount, diceSides);
+        Integer sum = diceSimulationList.stream()
+                .map(x -> x.getFrequency())
+                .reduce(0, Integer::sum);
+
+        for (DiceSimulation diceSimulation: diceSimulationList) {
+            DiceDistribution diceDistribution = new DiceDistribution();
+            diceDistribution.setDiceCount(diceSimulation.getDiceCount());
+            diceDistribution.setDiceSide(diceSimulation.getDiceSide());
+            diceDistribution.setSum(diceSimulation.getRollSum());
+            diceDistribution.setFrequency(diceSimulation.getFrequency());
+            diceDistribution.setProbability(diceSimulation.getFrequency()/sum.floatValue());
+            diceDistribution.setProbabilityText(String.format("%.2f%%",(diceSimulation.getFrequency()/sum.floatValue())*100));
+            diceDistributionList.add(diceDistribution);
+        }
+
+        return ResponseEntity.ok().body(diceDistributionList);
     }
 }
