@@ -11,20 +11,20 @@ public class DiceSimulation {
     private Long id;
 
     @Column(name = "DICE_COUNT")
-    private String diceCount;
+    private Integer diceCount;
 
     @Column(name = "DICE_SIDE")
-    private String diceSide;
+    private Integer diceSide;
 
     @Column(name = "ROLL_SUM")
-    private String rollSum;
+    private Integer rollSum;
 
     @Column(name = "FREQUENCY")
-    private String frequency;
+    private Integer frequency;
 
     public DiceSimulation() { }
 
-    public DiceSimulation(Long id, String diceCount, String diceSide, String rollSum, String frequency) {
+    public DiceSimulation(Long id, Integer diceCount, Integer diceSide, Integer rollSum, Integer frequency) {
         this.id = id;
         this.diceCount = diceCount;
         this.setDiceSide(diceSide);
@@ -40,35 +40,35 @@ public class DiceSimulation {
         this.id = id;
     }
 
-    public String getDiceCount() {
+    public Integer getDiceCount() {
         return diceCount;
     }
 
-    public void setDiceCount(String diceCount) {
+    public void setDiceCount(Integer diceCount) {
         this.diceCount = diceCount;
     }
 
-    public String getRollSum() {
+    public Integer getRollSum() {
         return rollSum;
     }
 
-    public void setRollSum(String rollSum) {
+    public void setRollSum(Integer rollSum) {
         this.rollSum = rollSum;
     }
 
-    public String getFrequency() {
+    public Integer getFrequency() {
         return frequency;
     }
 
-    public void setFrequency(String frequency) {
+    public void setFrequency(Integer frequency) {
         this.frequency = frequency;
     }
 
-    public String getDiceSide() {
+    public Integer getDiceSide() {
         return diceSide;
     }
 
-    public void setDiceSide(String diceSide) {
+    public void setDiceSide(Integer diceSide) {
         this.diceSide = diceSide;
     }
 }
