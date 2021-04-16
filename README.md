@@ -132,6 +132,17 @@ Sample response:
    }
 ]
 ```
+* It will return a validation error once the number of dice and the total number of rolls are not met. 
+
+Sample Response:
+```
+{"error":0,"message":"The number of dice and the total number of rolls must be at least 1."}
+```
+* It will return a validation error once the sides of dice is not met. 
+Sample Response:
+```
+{"error":1,"message":"The sides of a dice must be at least 4."}
+```
 
 * Fetch the distribution from the rolls made. **Important:** You need to execute simulate the `diceroll` endpoint first before executing this. It will return `[]` if no simulations will be fetched from db
 * http://localhost:8080/dicedistribution (By default diceCount=3&diceSides=6 but you can specify other values and append it in the endpoint i.e. `http://localhost:8080/dicedistribution?diceCount=6&diceSides=9`)
@@ -345,6 +356,31 @@ H2 is one of the popular in memory databases. Spring Boot has very good integrat
 
 ## Code snippets
 
+```
+...
+    @GetMapping(value="/diceroll", produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<Object> rollIt(@RequestParam(value = "diceCount", defaultValue = "3") int diceCount,
+                                                       @RequestParam(value = "diceSides", defaultValue = "6") int diceSides,
+                                                       @RequestParam(value = "rollCount", defaultValue = "100") int rollCount) {
+
+        //0-9
+        /*Random rand = new Random();
+        int x = rand.nextInt(10);*/
+
+        //validation
+        if (diceCount < 1 || rollCount < 1) {
+            JSONObject jsonObject = new JSONObject();
+            jsonObject.put("error", ErrorMessage.INPUT_ERROR.getCode());
+            jsonObject.put("message", ErrorMessage.INPUT_ERROR.getDescription());
+            return ResponseEntity.badRequest().body(jsonObject.toString());
+        } else if (diceSides < 4) {
+            JSONObject jsonObject = new JSONObject();
+            jsonObject.put("error", ErrorMessage.INPUT_DICE_SIDE_ERROR.getCode());
+            jsonObject.put("message", ErrorMessage.INPUT_DICE_SIDE_ERROR.getDescription());
+            return ResponseEntity.badRequest().body(jsonObject.toString());
+        }
+...
+```
 
 
 ..To be continued
