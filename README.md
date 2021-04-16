@@ -139,12 +139,13 @@ Sample Response:
 {"error":0,"message":"The number of dice and the total number of rolls must be at least 1."}
 ```
 * It will return a validation error once the sides of dice is not met. 
+
 Sample Response:
 ```
 {"error":1,"message":"The sides of a dice must be at least 4."}
 ```
 
-* Fetch the distribution from the rolls made. 
+* Fetch the probability/distribution from the rolls made. 
 
 **Important:** You need to execute simulate the `diceroll` endpoint first before executing this. It will return `[]` if no simulations will be fetched from db
 * http://localhost:8080/dicedistribution (By default diceCount=3&diceSides=6 but you can specify other values and append it in the endpoint i.e. `http://localhost:8080/dicedistribution?diceCount=6&diceSides=9`)
