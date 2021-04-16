@@ -354,7 +354,7 @@ The main packages are listed below and the java classes included.
 **H2** is one of the popular in memory databases. Spring Boot has very good integration for H2. An in memory database is created when an application starts up and destroyed when the application is stopped.
 
 * This database is considered as we don't really need to save large bulk of data. This application is for simulation purposes only :)
-* To properly set it up in a Springboot application, please check [Spring Boot with H2 Database](https://www.baeldung.com/spring-boot-h2-database)
+* To properly set up and access H2 in a Springboot application, please check [Spring Boot with H2 Database](https://www.baeldung.com/spring-boot-h2-database)
 
 
 ## Code snippets
