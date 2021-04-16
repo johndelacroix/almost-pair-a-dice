@@ -12,7 +12,7 @@ See [GIT documentation](https://git-scm.com/docs/git-clone) for more details abo
 
 ## Clone
 
-* Clone the GIT repository as documented above to i.e. `D:/workspace/almost-pair-a-dice`
+* Clone the GIT repository as documented above to i.e. `D:/workspace/`
 
 
 ## Simulation and Test
@@ -26,7 +26,7 @@ To simulate the Dice Distribution Simulation, follow steps below:
 
 2. Open **cmd** in Administrator mode
 
-3. Go to `almost-pair-a-dice` directory of the project using **cd** command
+3. Go to project directory i.e. `D:/workspace/almost-pair-a-dice` using **cd** command
 
 4. Run following script `mvn spring-boot:run`
 * The log should have this at the end to confirm that it is already up with no issues:
