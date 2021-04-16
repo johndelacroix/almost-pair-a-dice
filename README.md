@@ -355,6 +355,7 @@ H2 is one of the popular in memory databases. Spring Boot has very good integrat
 
 
 ## Code snippets
+* The diceroll endpoint returns an **Object** as a response since it will either return a **List of Simulation** or an **Error Message Object**
 
 ```
 ...
