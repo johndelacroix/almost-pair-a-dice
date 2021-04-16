@@ -38,6 +38,7 @@ To simulate the Dice Distribution Simulation, follow steps below:
 
 ## Packages and Resources
 The building blocks of the app comprises of packages. These are residing inside `src->main->java` folder
+Resources folder(`src->main->resources`) contains folders for storing binary files, data files, image files, properties files, etc. which will be utilized by the Springboot application.
 
 ### Packages
 The main packages are listed below and the java classes included.
@@ -49,6 +50,10 @@ The main packages are listed below and the java classes included.
 ### Resources
 * `application.properties`: Properties files are used to keep 'N' number of properties in a single file to run the application in a different environment
 * `application-dev.properties`: This is the properties file used in dev environment
-* `com.example.almostpairadice.models`: Entity classes/persistence objects - class is an entity and is mapped to a database table
+* `data.sql`: Contains DDL script for our in-memory database (H2)
 
+### Database
+H2 is one of the popular in memory databases. Spring Boot has very good integration for H2. An in memory database is created when an application starts up and destroyed when the application is stopped.
+* This database is considered as we don't really need to save large bulk of data. This application is for simulation purposes only :)
+* To properly set it up in our Springboot application, please check [Spring Boot with H2 Database](https://www.baeldung.com/spring-boot-h2-database)
 ..To be continued
