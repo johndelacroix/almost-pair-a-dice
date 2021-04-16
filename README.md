@@ -36,6 +36,10 @@ To simulate the Dice Distribution Simulation, follow steps below:
 ```
 ...
 
+5. Run the following endpoints to simulate dice distribution:
+* http://localhost:8080/diceroll (By default diceCount=3&diceSides=6&rollCount=100 but you can specify other values and append it in the endpoint i.e. `http://localhost:8080/diceroll?diceCount=6&diceSides=9&rollCount=69`)
+* http://localhost:8080/dicedistribution (By default diceCount=3&diceSides=6 but you can specify other values and append it in the endpoint i.e. `http://localhost:8080/diceroll?diceCount=6&diceSides=9`)
+
 ## Packages and Resources
 The building blocks of the app comprises of packages. These are residing inside `src->main->java` folder
 Resources folder(`src->main->resources`) contains folders for storing binary files, data files, image files, properties files, etc. which will be utilized by the Springboot application.
@@ -57,5 +61,10 @@ H2 is one of the popular in memory databases. Spring Boot has very good integrat
 
 * This database is considered as we don't really need to save large bulk of data. This application is for simulation purposes only :)
 * To properly set it up in a Springboot application, please check [Spring Boot with H2 Database](https://www.baeldung.com/spring-boot-h2-database)
+
+
+## Code snippets
+
+
 
 ..To be continued
