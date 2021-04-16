@@ -46,5 +46,9 @@ The main packages are listed below and the java classes included.
 * `com.example.almostpairadice.models`: Entity classes/persistence objects - class is an entity and is mapped to a database table
 * `com.example.almostpairadice.repositories`: Dice Simulation Repository - encapsulating storage, retrieval, and search behavior which emulates a collection of objects
 
+### Resources
+* `application.properties`: Properties files are used to keep 'N' number of properties in a single file to run the application in a different environment
+* `application-dev.properties`: This is the properties file used in dev environment
+* `com.example.almostpairadice.models`: Entity classes/persistence objects - class is an entity and is mapped to a database table
 
 ..To be continued
