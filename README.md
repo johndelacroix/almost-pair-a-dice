@@ -35,6 +35,7 @@ To simulate the Dice Distribution Simulation, follow steps below:
 ```
 
 5. Run the following endpoints to simulate dice distribution:
+* Roll the dices and display how many times each total has been rolled
 * http://localhost:8080/diceroll (By default diceCount=3&diceSides=6&rollCount=100 but you can specify other values and append it in the endpoint i.e. `http://localhost:8080/diceroll?diceCount=6&diceSides=9&rollCount=69`)
 
 Sample response:
@@ -132,6 +133,7 @@ Sample response:
 ]
 ```
 
+* Fetch the distribution from the rolls made. **Important:** You need to execute simulate the `diceroll` endpoint first before executing this. It will return `[]` if no simulations will be fetched from db
 * http://localhost:8080/dicedistribution (By default diceCount=3&diceSides=6 but you can specify other values and append it in the endpoint i.e. `http://localhost:8080/dicedistribution?diceCount=6&diceSides=9`)
 
 Sample response:
