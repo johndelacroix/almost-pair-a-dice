@@ -19,17 +19,22 @@ See [GIT documentation](https://git-scm.com/docs/git-clone) for more details abo
 
 To simulate the Dice Distribution Simulation, follow steps below:
 
-* The application was build using [Maven] (https://maven.apache.org/).
+1. The application was built using [Maven](https://maven.apache.org/).
 
-1. Install/configure MVN in your workstation in order to run this Springboot app 
-2. See [Installing Apache Maven](https://maven.apache.org/install.html) for more details about how to install Maven.
+* Install/configure MVN in your workstation in order to run this Springboot app 
+* See [Installing Apache Maven](https://maven.apache.org/install.html) for more details about how to install Maven.
 
-* Open **cmd** in Administrator mode
+2 Open **cmd** in Administrator mode
 
-* Go to `almost-pair-a-dice` directory of the project using **cd** command
+3 Go to `almost-pair-a-dice` directory of the project using **cd** command
 
-* Run following script mvn spring-boot:run
-* It should have an ending:
+4 Run following script mvn spring-boot:run
+* The log should have this at the end to confirm that it is already up with no issues:
+...
+```
 2021-04-15 20:38:59.619  INFO 7908 --- [           main] c.e.a.AlmostPairADiceApplication         : Started AlmostPairADiceApplication in 3.308 seconds (JVM running for 3.731)
+```
+...
+
 
 ..To be continued
