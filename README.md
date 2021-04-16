@@ -38,6 +38,7 @@ To simulate the Dice Distribution Simulation, follow steps below:
 
 5. Run the following endpoints to simulate dice distribution:
 * http://localhost:8080/diceroll (By default diceCount=3&diceSides=6&rollCount=100 but you can specify other values and append it in the endpoint i.e. `http://localhost:8080/diceroll?diceCount=6&diceSides=9&rollCount=69`)
+
 Sample response:
 
 ```
@@ -134,6 +135,7 @@ Sample response:
 ```
 
 * http://localhost:8080/dicedistribution (By default diceCount=3&diceSides=6 but you can specify other values and append it in the endpoint i.e. `http://localhost:8080/dicedistribution?diceCount=6&diceSides=9`)
+
 Sample response:
 ```
 [
@@ -319,6 +321,7 @@ Sample response:
 
 ## Packages and Resources
 The building blocks of the app comprises of packages. These are residing inside `src->main->java` folder
+
 Resources folder(`src->main->resources`) contains folders for storing binary files, data files, image files, properties files, etc. which will be utilized by the Springboot application.
 
 ### Packages
