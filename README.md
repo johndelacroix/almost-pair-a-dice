@@ -144,7 +144,9 @@ Sample Response:
 {"error":1,"message":"The sides of a dice must be at least 4."}
 ```
 
-* Fetch the distribution from the rolls made. **Important:** You need to execute simulate the `diceroll` endpoint first before executing this. It will return `[]` if no simulations will be fetched from db
+* Fetch the distribution from the rolls made. 
+
+**Important:** You need to execute simulate the `diceroll` endpoint first before executing this. It will return `[]` if no simulations will be fetched from db
 * http://localhost:8080/dicedistribution (By default diceCount=3&diceSides=6 but you can specify other values and append it in the endpoint i.e. `http://localhost:8080/dicedistribution?diceCount=6&diceSides=9`)
 
 Sample response:
@@ -356,6 +358,7 @@ H2 is one of the popular in memory databases. Spring Boot has very good integrat
 
 ## Code snippets
 * The diceroll endpoint returns an **Object** as a response since it will either return a **List of Simulation** or an **Error Message Object**
+* **HashMap** collection object is considered as the key-value pair can be utilized to save the dice's roll sum and its occurence
 
 ```
 ...
@@ -379,6 +382,23 @@ H2 is one of the popular in memory databases. Spring Boot has very good integrat
             jsonObject.put("error", ErrorMessage.INPUT_DICE_SIDE_ERROR.getCode());
             jsonObject.put("message", ErrorMessage.INPUT_DICE_SIDE_ERROR.getDescription());
             return ResponseEntity.badRequest().body(jsonObject.toString());
+        }
+
+        Map<Integer, Integer> diceTotalMap = new HashMap<>();
+
+        for (int i=0; i<rollCount; i++) {
+            int sum = 0;
+            for (int j=0; j<diceCount; j++) {
+                Random rand = new Random();
+                int result = rand.nextInt(diceSides) + 1;
+                sum += result;
+            }
+            Integer count = diceTotalMap.get(sum);
+            if (count == null) {
+                count = 0;
+            }
+            diceTotalMap.put(sum, count + 1);
+            LOGGER.info("Roll attempt {}: SUM {}", i+1, sum);
         }
 ...
 ```
