@@ -30,11 +30,9 @@ To simulate the Dice Distribution Simulation, follow steps below:
 
 4. Run following script `mvn spring-boot:run`
 * The log should have this at the end to confirm that it is already up with no issues:
-...
 ```
 2021-04-15 20:38:59.619  INFO 7908 --- [           main] c.e.a.AlmostPairADiceApplication         : Started AlmostPairADiceApplication in 3.308 seconds (JVM running for 3.731)
 ```
-...
 
 5. Run the following endpoints to simulate dice distribution:
 * http://localhost:8080/diceroll (By default diceCount=3&diceSides=6&rollCount=100 but you can specify other values and append it in the endpoint i.e. `http://localhost:8080/diceroll?diceCount=6&diceSides=9&rollCount=69`)
