@@ -353,13 +353,13 @@ The main packages are listed below and the java classes included.
 ### Database
 **H2** is one of the popular in memory databases. Spring Boot has very good integration for H2. An in memory database is created when an application starts up and destroyed when the application is stopped.
 
-* This database is considered as we don't really need to save large bulk of data. This application is for simulation purposes only :)
+* This database is considered as we don't really need to save large bulk of data. The goal of the application is for simulation purposes only, no need to save data for now :)
 * To properly set up and access H2 in a Spring Boot application, please check [Spring Boot with H2 Database](https://www.baeldung.com/spring-boot-h2-database)
 
 
 ## Code snippets
 * The ```diceroll``` endpoint returns an **Object** as a response since it will either return a **List of Simulation** or an **Error Message Object**
-* **HashMap** collection object is considered as the key-value pair can be utilized to save the dice's roll sum and its occurence
+* **HashMap** collection object is considered as the key-value pair can be utilized to save the dice's roll sum and its occurrence
 
 ```
 ...
